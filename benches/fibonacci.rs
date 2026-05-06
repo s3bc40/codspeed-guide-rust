@@ -1,24 +1,9 @@
 use tokio::time::Duration;
 use tokio::{runtime::Runtime, time::sleep};
+use codspeed_guide_rust::fibonacci::{fib, generate_large_json};
 
 fn main() {
     divan::main();
-}
-
-fn fib(n: u64) -> u64 {
-    if n <= 1 {
-        1
-    } else {
-        fib(n - 2) + fib(n - 1)
-    }
-}
-
-// Example of a dynamic benchmark
-fn generate_large_json(size: usize) -> String {
-    let items: Vec<_> = (0..size)
-        .map(|i| format!(r#"{{"id":{},"name":"item_{}","value":{}}}"#, i, i, i * 10))
-        .collect();
-    format!("[{}]", items.join(","))
 }
 
 // Preventing dead code elimination -> black_box ("Pretend you don't know what this value is.")

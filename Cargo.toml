@@ -13,3 +13,7 @@ tokio = { version = "1.52.2", features = ["time", "rt-multi-thread"] }
 [[bench]]
 name = "fibonacci"
 harness = false
+
+[[bench]]
+name = "sorting"
+harness = false
