@@ -1,9 +1,12 @@
 pub fn fib(n: u64) -> u64 {
     if n <= 1 {
-        1
-    } else {
-        fib(n - 2) + fib(n - 1)
+        return 1;
     }
+    let (mut a, mut b) = (1u64, 1u64);
+    for _ in 2..=n {
+        (a, b) = (b, a + b);
+    }
+    b
 }
 
 // Example of a dynamic benchmark
